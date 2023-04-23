@@ -41,7 +41,7 @@ module.exports = {
     const thumbnail = interaction.options.getAttachment("thumbnail");
 
     const updateRole = server === "SURVIVAL" ? process.env.SURVIVALROLE : process.env.SKYBLOCKROLE;
-    const channel = server === "SURVIVAL" ? process.env.SURVIVALCHANNEL : process.env.SKYBLOCKCHANNEL;
+    const channel = server === "SURVIVAL" ? process.env.SURVIVALUPDATECHANNEL : process.env.SKYBLOCKUPDATECHANNEL;
     const arrowEmoji = "<:redarrow:1097699213015535698>";
 
     let message = "";
