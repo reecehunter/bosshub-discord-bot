@@ -49,7 +49,7 @@ module.exports = {
         message += `${arrowEmoji} ${str}\n\n`;
     }
 
-    const content = ping ? `<@${updateRole}>` : "";
+    const content = ping ? `<@&${updateRole}>` : "";
 
     const embed = new EmbedBuilder()
       .setColor(0xbd0d0d)
