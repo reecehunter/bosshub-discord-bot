@@ -6,6 +6,8 @@ module.exports = {
             message.react('👍');
             message.react('♥️');
             message.react('👎');
+        } else if(message.channelId === process.env.BOOSTSCHANNEL) {
+            message.react('♥️');
         }
     }
 }
