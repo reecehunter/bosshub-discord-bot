@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder, PermissionsBitField } = require("discord.js");
 require("dotenv").config();
 const { client } = require("../settings");
 
@@ -33,6 +33,10 @@ module.exports = {
   async execute(interaction) {
     const member = await interaction.guild.members.fetch(interaction.user.id);
 
+    if(!member.permissions.has(PermissionsBitField.Flags.Administrator)) {
+        return interaction.reply({content:"You must be an Admin to do that.", ephemeral:true});
+    }
+
     const ping = interaction.options.getBoolean("ping");
     const server = interaction.options.getString("server");
     const title = interaction.options.getString("title") || `NEW ${server} UPDATE`;
@@ -42,7 +46,7 @@ module.exports = {
 
     const updateRole = server === "SURVIVAL" ? process.env.SURVIVALROLE : process.env.SKYBLOCKROLE;
     const channel = server === "SURVIVAL" ? process.env.SURVIVALUPDATECHANNEL : process.env.SKYBLOCKUPDATECHANNEL;
-    const arrowEmoji = "<:redarrow:1097699213015535698>";
+    const arrowEmoji = process.env.ARROWEMOJI;
 
     let message = "";
     for(str of description.split("|")) {
