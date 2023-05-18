@@ -1,11 +1,7 @@
-// Require the necessary discord.js classes
-// const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
+// Require the necessary classes
 require("dotenv").config();
-// const fs = require("node:fs");
-// const path = require("node:path");
 
 // Create a new client instance
-// const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const { Client, Collection, Events, GatewayIntentBits, fs, path, client } = require("./settings");
 const { autoReact } = require("./listeners/onMessage");
 
